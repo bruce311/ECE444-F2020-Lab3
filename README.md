@@ -21,11 +21,12 @@ https://github.com/miguelgrinberg/flasky
 
 SQL database is relational and it uses structured query language VS NoSQL database is non-relational and it doesn't use structured query language
 
-SQL database uses pre-defined schemas vs NoSQL database doesn't have pre-defined schemas
+SQL database uses pre-defined schemas VS NoSQL database doesn't have pre-defined schemas
 
 SQL database stores data in tables VS NoSQL databases stores data in documents, key-value stores, etc (e.g. json format)
 
 SQL database is more suitable for store a large quantity and less often modification of data VS NoSQL database is good for storing data that requires quicker data access/modification.
 
 SQL database examples: MySQL, PostgreSQL, Oracle
+
 NoSQL database examples: MongoDB, Redis, Cassandra
