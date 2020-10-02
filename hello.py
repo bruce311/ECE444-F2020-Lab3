@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, session, redirect, url_for, flash
 from flask_bootstrap import Bootstrap
 from flask_moment import Moment
 from datetime import datetime
@@ -31,15 +31,18 @@ def internal_server_error(e):
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    name = None
-    email = None
     form = InfoForm()
     if form.validate_on_submit():
-        name = form.name.data
-        form.name.data = ''
-        email = form.email.data
-        form.email.data = ''
-    return render_template('index.html', form=form, name=name, email=email)
+        prev_name = session.get('name')
+        prev_email = session.get('email')
+        if prev_name is not None and prev_name != form.name.data:
+            flash('Looks like you have changed your name!')
+        if prev_email is not None and prev_email != form.email.data:
+            flash('Looks like you have changed your email!')
+        session['name'] = form.name.data
+        session['email'] = form.email.data
+
+    return render_template('index.html', form=form, name=session.get('name'), email=session.get('email'))
 
 
 @app.route('/user/<name>')

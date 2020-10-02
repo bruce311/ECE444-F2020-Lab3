@@ -7,7 +7,7 @@
 <div class="container">
     <div class="page-header">
         <h1>Hello, {% if name %}{{ name }}{% else %}Stranger{% endif %}!</h1>
-        <h1>{% if not email %}  {% elif 'utoronto.ca' not in email %} Not a UofT email. {% else %} Your UofT email is {{ email }}
+        <h1>{% if not email %}  {% elif 'utoronto.ca' not in email %} Please use your UofT email. {% else %} Your UofT email is {{ email }}
             {% endif %}
         </h1>
     </div>
